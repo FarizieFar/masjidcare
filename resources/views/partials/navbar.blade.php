@@ -1,4 +1,4 @@
-<nav class="h-44 bg-[#175729] flex items-center justify-between">
+<nav class="h-44 bg-[#175729] flex items-center justify-between sticky top-0" style="z-index: 1">
     <div class="ms-24">
         <svg width="346" height="117" viewBox="0 0 346 117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="346" height="117" fill="url(#pattern0)"/>

@@ -1,9 +1,9 @@
-<footer class="bg-[#175729] h-[104px] flex items-center text-slate-200">
-    <div flex items-center>
-        <span class="ms-[43px] me-[24px]">©2023MasjidCare.org</span>
-        <span>All Rights Reserved</span>
+<footer class="bg-[#175729] h-[104px] flex items-center text-slate-200 justify-between">
+    <div class="flex items-center ms-[43px]" >
+        <span class="me-[75px]">© 2023MasjidCare.org</span>
+        <span class="font">All Rights Reserved</span>
     </div>
-    <div class="flex items-center justify-end">
+    <div class="flex justify-center items-center gap-[12px] me-[30px]">
         <span>Media Sosial MasjidCare</span>
     <a href="">
         <div class="w-[68px] h-[66px] rounded-full bg-white flex items-center">

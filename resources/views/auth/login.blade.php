@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div class="flex items-center text-[#175729] text-center">
         <div class="mx-auto w-[424.5px] h-[531px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)]">
             <div>
-                <svg class="mx-auto mt-[16.5px]" width="319" height="127" viewBox="0 0 319 127" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg class="mx-auto mt-[16.5px]" width="238.25" height="95.25" viewBox="0 0 319 127" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="319" height="127" rx="63.5" fill="url(#pattern0)"/>
                     <defs>
                     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -26,28 +27,66 @@
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone /Email</label>  
                 <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone/Email">
+
+                <div class="absolute right-[506px] bottom-[421px]">
+                    <i class="fa-solid fa-user"></i>
+                </div>
             </div>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi</label>
-                <input type="password" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi">
+                <input type="password" id="passwordInput" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi">
                 
-                    <div class="absolute right-[500px] bottom-[400px]">
-                        <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.83 6L14 9.16V9C14 8.20435 13.6839 7.44129 13.1213 6.87868C12.5587 6.31607 11.7956 6 11 6H10.83ZM6.53 6.8L8.08 8.35C8.03 8.56 8 8.77 8 9C8 9.79565 8.31607 10.5587 8.87868 11.1213C9.44129 11.6839 10.2044 12 11 12C11.22 12 11.44 11.97 11.65 11.92L13.2 13.47C12.53 13.8 11.79 14 11 14C9.67392 14 8.40215 13.4732 7.46447 12.5355C6.52678 11.5979 6 10.3261 6 9C6 8.21 6.2 7.47 6.53 6.8ZM1 1.27L3.28 3.55L3.73 4C2.08 5.3 0.78 7 0 9C1.73 13.39 6 16.5 11 16.5C12.55 16.5 14.03 16.2 15.38 15.66L15.81 16.08L18.73 19L20 17.73L2.27 0M11 4C12.3261 4 13.5979 4.52678 14.5355 5.46447C15.4732 6.40215 16 7.67392 16 9C16 9.64 15.87 10.26 15.64 10.82L18.57 13.75C20.07 12.5 21.27 10.86 22 9C20.27 4.61 16 1.5 11 1.5C9.6 1.5 8.26 1.75 7 2.2L9.17 4.35C9.74 4.13 10.35 4 11 4Z" fill="#175729"/>
-                            </svg>  
+                    <div class="absolute right-[505px] bottom-[347px]" id="password">
+                        <button class="fa-solid fa-eye-slash" id="passwordLogo"></button>
                     </div>
             </div>
-            <div class="flex">
-                <input type="checkbox" class="" id="remember">
-                <label for="remember" class="flex items-center cursor-pointer bg-[#D9D9D9]">
-                    <div class="w-5 h-5 flex items-center justify-center border border-gray-400 rounded-md">
+            <div class="flex ms-[25.5px] mt-[11.25px]">
+                <input type="checkbox" class="hidden" id="remember">
+                <label for="remember" class="flex items-center" id="rememberLabel">
+                    <div id="check" class="w-[18px] h-[18px] rounded-[5px] bg-[#D9D9D9] me-[9.75px] flex items-center">
+                        
                     </div>
                   </label>
-                <span class="font-semibold">Ingat Saya</span>
+                <span class="font-semibold text-[11.25px] me-[200px]">Ingat Saya</span>
+                <a href="" class="font-semibold text-[11.25px]"><u>Lupa Kata Sandi?</</u></a>
+                
+            </div>
+            <div>
+                <button></button>
             </div>
         </div>
     </div>
 
 </body>
+<script>
+    let label = document.querySelector('#rememberLabel');
+    let check = document.querySelector("#check");
+    let i = 1;
+    label.addEventListener('click', function(){
+        if(i % 2 == 1){
+            check.innerHTML = `<i class="fa-solid fa-check text-sm mx-auto"></i>`;
+        } else {
+            check.innerHTML = '';
+        }
+        
+        i++;
+    })
+
+    let passwordLogo = document.querySelector('#passwordLogo');
+    let passwordInput = document.querySelector('#passwordInput');
+    let j = 1;
+    passwordLogo.addEventListener('click', function(){
+        if(j % 2 == 1){
+            passwordLogo.classList.remove('fa-eye-slash');
+            passwordLogo.classList.add('fa-eye');
+            passwordInput.type = 'text';
+        } else {
+            passwordLogo.classList.remove('fa-eye');
+            passwordLogo.classList.add('fa-eye-slash');
+            passwordInput.type = 'password';
+        }
+        j++;
+    })
+</script>
 </html>
 

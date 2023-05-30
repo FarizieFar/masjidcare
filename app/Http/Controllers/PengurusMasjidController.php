@@ -54,4 +54,12 @@ class PengurusMasjidController extends Controller
         return redirect('/')
             ->with('success', 'masjid Berhasil Ditambahkan');
     }
+
+    public function login(){
+        return view('masjid.login');
+    }
+
+    public function validateLogin(){
+
+    }
 }

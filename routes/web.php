@@ -28,3 +28,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::get('/register-pengurus', [MasjidController::class, 'register']);
 
 Route::post('/register-pengurus', [PengurusMasjidController::class, 'postRegister']);
+
+Route::get('/login-pengurus', [PengurusMasjidController::class, 'login']);
+
+Route::post('/login-pengurus', [PengurusMasjidController::class, 'validateLogin']);

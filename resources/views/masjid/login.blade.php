@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <form action="/login" method="post">
+    <form action="/login-pengurus" method="post">
         @csrf
     <div class="flex items-center text-[#175729] text-center">
         <div class="mx-auto w-[424.5px] h-[471px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[60px]">
@@ -60,8 +60,8 @@
                 <a href="/register">
                     <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Belum Punya Akun? </u></span><span class="font-medium text-[10.5px]">Daftar Sekarang</span>
                 </a>
-                <a href="/login-pengurus">
-                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Login Sebagai Pengurus Masjid?</u></span><span class="font-medium text-[10.5px]"> Disini</span>
+                <a href="/login">
+                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Login Sebagai Donatur?</u></span><span class="font-medium text-[10.5px]"> Disini</span>
                 </a>
             </div>
             

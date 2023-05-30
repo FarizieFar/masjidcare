@@ -9,8 +9,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="flex items-center text-[#175729] text-center">
-        <div class="mx-auto w-[424.5px] h-[471px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[60px]">
+    <form action="/register-pengurus" id="form" method="post" enctype="multipart/form-data">
+    @csrf
+    @error('password')
+    <span>{{ $message }}</span>
+    @enderror
+    <div class="flex items-center text-[#175729] text-center" id="pengurus">
+        <div class="mx-auto w-[424.5px] h-[561px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[48.5px]">
             <div>
                 <svg class="mx-auto mt-[16.5px]" width="238.25" height="95.25" viewBox="0 0 319 127" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="319" height="127" rx="63.5" fill="url(#pattern0)"/>
@@ -22,62 +27,148 @@
                     </defs>
                     </svg>    
             </div>
-            <h1 class="text-[24px] font-semibold">Selamat Datang</h1>
-            <h3 class="font-medium text-[15px]">Masuk untuk menikmati #DonasiAnda</h3>
+            <h1 class="text-[24px] font-semibold">Daftarkan Pengurus Masjid</h1>
             <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email</label>  
-                <input type="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Pengurus</label>  
+                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Pengurus" name="name">
 
-                <div class="absolute right-[506px] bottom-[361px]">
+                <div class="absolute right-[506px] bottom-[395px]">
                     <i class="fa-solid fa-user"></i>
                 </div>
             </div>
             <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi</label>
-                <input type="password" id="passwordInput" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi">
-                
-                    <div class="absolute right-[505px] bottom-[287px]" id="password">
-                        <button class="fa-solid fa-eye-slash" id="passwordLogo"></button>
-                    </div>
-            </div>
-            <div class="flex ms-[25.5px] mt-[11.25px]">
-                <input type="checkbox" class="hidden" id="remember">
-                <label for="remember" class="flex items-center" id="rememberLabel">
-                    <div id="check" class="w-[18px] h-[18px] rounded-[5px] bg-[#D9D9D9] me-[9.75px] flex items-center">
-                        
-                    </div>
-                  </label>
-                <span class="font-semibold text-[11.25px] me-[200px]">Ingat Saya</span>
-                <a href="" class="font-semibold text-[11.25px]"><u>Lupa Kata Sandi?</u></a>
-                
-            </div>
-            <div class="mb-[18.25px]">
-                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]">Masuk</button>                
-            </div>
-            <a href="/register">
-                <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Belum Punya Akun? </u></span><span class="font-medium text-[10.5px]">Daftar Sekarang</span>
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email Pengurus</label>  
+                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email Pengurus">
 
-            </a>
+                <div class="absolute right-[506px] bottom-[321px]">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+            <div class="mt-[16.5px] text-left">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone Pengurus</label>  
+                <input type="text" name="phone" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone Pengurus">
+
+                <div class="absolute right-[506px] bottom-[247px]">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+            </div>
+            <div class="mt-[16.5px] text-left">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi Pengurus</label>
+                <input type="password" id="passwordInput" name="password" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi Pengurus">
+                <input type="hidden" name="password_confirmation" id="confirm">
+                
+                    <div class="absolute right-[505px] bottom-[173px]" id="password">
+                        <button class="fa-solid fa-eye-slash" id="passwordLogo" type="button"></button>
+                    </div>
+            </div>
+
+            <div class="mb-[15.25px]">
+                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]" type="button" id="lanjut">Lanjut</button>                
+            </div>
+            <div class="flex justify-between mx-[20px]">
+                <span>
+                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Sudah Punya Akun?</u></span><span class="font-medium text-[10.5px]"> <a href="/login">Login</a></span>
+                </span>
+                    
+                <span>
+                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Daftar Sebagai Donatur?</u></span><span class="font-medium text-[10.5px]"><a href="/register"> Daftar</a></span>
+                </span>
+
+            </div>
+            
             
         </div>
         
     </div>
-    <h1 class="mt-[70px] text-center font-semibold text-[#175729]">©2023MasjidCare.org</h1>
 
+    <div class="flex items-center text-[#175729] text-center hidden" id="masjid">
+        <div class="pt-[40px] mx-auto w-[424.5px] h-[561px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[48.5px]">
+            <h1 class="text-[24px] font-semibold">Daftarkan Masjid</h1>
+            <div class="mt-[16.5px] text-left">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Masjid</label>  
+                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Masjid" name="name_masjid">
+
+                <div class="absolute right-[506px] bottom-[467px]">
+                    <i class="fa-solid fa-mosque"></i>
+                </div>
+            </div>
+            <div class="mt-[16.5px] text-left">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Alamat Masjid</label>  
+                <input type="text" name="alamat" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Alamat Masjid">
+
+                <div class="absolute right-[506px] bottom-[393px]">
+                    <i class="fa-solid fa-address-book"></i>
+                </div>
+            </div>
+            <div class="mt-[16.5px] text-left">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Luas Masjid (m<sup>3</sup>)</label>  
+                <input type="text" name="luas" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Luas Masjid">
+
+                <div class="absolute right-[510px] bottom-[319px]">
+                    <i class="fa-solid fa-ruler-vertical"></i>
+                </div>
+            </div>
+            <div class="mt-[16.5px] text-left">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Surat Kepemilikan / Wakaf</label>
+                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]"> 
+                    <label for="surat" class="rounded-[25px] w-[70px] h-[20px] bg-[#175729] text-slate-300 me-[7px] cursor-pointer flex items-center"><span class="mx-auto">Pilih File</span></label>
+                    <span id="surat_span">Masukkan Surat Kepemilikan / Wakaf</span>
+                    <input type="file" name="surat" class="hidden" id="surat">
+                </div>
+                
+                    <div class="absolute right-[508px] bottom-[244px]">
+                        <i class="fa-solid fa-file"></i>
+                    </div>
+            </div>
+
+            <div class="mt-[16.5px] text-left">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]" id="labelFoto">Foto Masjid</label>  
+                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]"> 
+                    <label for="foto" class="rounded-[25px] w-[70px] h-[20px] bg-[#175729] text-slate-300 me-[7px] cursor-pointer flex items-center"><span class="mx-auto">Pilih File</span></label>
+                    <span id="foto_span">Masukkan Foto Masjid</span>
+                    <input type="file" name="foto" id="foto" class="hidden">
+                </div>
+                
+                
+                <div class="absolute right-[506px] bottom-[170px]">
+                    <i class="fa-solid fa-image"></i>
+                </div>
+            </div>
+
+            <div class="mb-[15.25px]">
+                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]">Submit</button>                
+            </div>
+            <div class="flex justify-between mx-[20px]">
+                <span>
+                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Sudah Punya Akun?</u></span><span class="font-medium text-[10.5px]"> <a href="/login">Login</a></span>
+                </span>
+                    
+                <span>
+                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Daftar Sebagai Donatur?</u></span><span class="font-medium text-[10.5px]"><a href="/register"> Daftar</a></span>
+                </span>
+
+            </div>
+            
+            
+        </div>
+        
+    </div>
+
+
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 <script>
-    let label = document.querySelector('#rememberLabel');
-    let check = document.querySelector("#check");
-    let i = 1;
-    label.addEventListener('click', function(){
-        if(i % 2 == 1){
-            check.innerHTML = `<i class="fa-solid fa-check text-sm mx-auto"></i>`;
-        } else {
-            check.innerHTML = '';
-        }
-        
-        i++;
-    })
+    function pass(){
+        event.preventDefault()
+        console.log('berhasil')
+        let password = document.getElementById('passwordInput').value
+        document.getElementById('confirm').value = password
+        console.log(document.getElementById('confirm').value)
+        document.getElementById('form').submit()
+    }
+    
 
     let passwordLogo = document.querySelector('#passwordLogo');
     let passwordInput = document.querySelector('#passwordInput');
@@ -94,6 +185,44 @@
         }
         j++;
     })
+
+
+$('#lanjut').click(function() {
+    $('#pengurus').hide('fold', 1000);
+    $('#masjid').show('fold', 1000);
+});
+
+$('#foto').change(function(){
+    const span = document.querySelector('#foto_span');
+    const file = document.querySelector('#foto');
+    
+    if(file.value){
+        if(file.value.trim().length > 40){
+            span.innerHTML = file.value.substring(12, 52) + '...'
+        } else {
+            span.innerHTML = file.value.substring(12)
+        }
+    } else {
+        span.innerHTML = 'Masukkan Foto Masjid'
+    }
+})
+$('#surat').change(function(){
+    const span = document.querySelector('#surat_span');
+    const file = document.querySelector('#surat');
+    
+    if(file.value){
+        if(file.value.trim().length > 40){
+            span.innerHTML = file.value.substring(12, 52) + '...'
+        } else {
+            span.innerHTML = file.value.substring(12)
+        }
+        
+    } else {
+        span.innerHTML = 'Masukkan Surat Kepemilikan / Wakaf'
+    }
+})
+
+
 </script>
 </html>
 

@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\MasjidController;
+use App\Http\Controllers\PengurusMasjidController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +22,9 @@ Route::get('/', [LandingPageController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('logout', [LoginController::class, 'logout']);
+
+Route::get('/register-pengurus', [MasjidController::class, 'register']);
+
+Route::post('/register-pengurus', [PengurusMasjidController::class, 'postRegister']);

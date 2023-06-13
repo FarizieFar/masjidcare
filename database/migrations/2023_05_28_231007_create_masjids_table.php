@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('surat');
             $table->string('foto');
             $table->integer('saldo')->nullable();
-            $table->integer('request');
+            $table->string('bank')->nullable();
+            $table->string('nomor_rekening')->nullable();
+            $table->string('request');
             $table->timestamps();
         });
     }

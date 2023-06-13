@@ -10,8 +10,16 @@ class Masjid extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function pengurusMasjid()
+    public function user()
     {
-        return $this->hasOne(PengurusMasjid::class);
+        return $this->hasOne(User::class);
+    }
+
+    public function pencairan(){
+        return $this->hasOne(Pencairan::class);
+    }
+
+    public function donasi(){
+        return $this->hasMany(Donasi::class);
     }
 }

@@ -26,7 +26,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo()
+    {
+        if (auth()->user()->level == 'pengurus') {
+            return '/pengurus-dashboard';
+        } else if (auth()->user()->level == 'admin') {
+            return '/admin-dashboard';
+        } else {
+            return '/';
+        }
+    }
 
     /**
      * Create a new controller instance.

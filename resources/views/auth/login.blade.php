@@ -7,12 +7,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    <div class="hidden">
+        @if ($errors->has('email'))
+            <input type="text" value="{{ $errors->first('email') }}" id="error">
+        @elseif ($errors->has('password'))
+            <input type="text" value="{{ $errors->first('password') }}" id="error">
+        @endif
+    </div>
     <form action="/login" method="post">
         @csrf
     <div class="flex items-center text-[#175729] text-center">
-        <div class="mx-auto w-[424.5px] h-[471px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[60px]">
+        <div class="mx-auto w-[424.5px] h-[471px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[80px]">
             <div>
                 <svg class="mx-auto mt-[16.5px]" width="238.25" height="95.25" viewBox="0 0 319 127" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="319" height="127" rx="63.5" fill="url(#pattern0)"/>
@@ -28,18 +36,18 @@
             <h3 class="font-medium text-[15px]">Masuk untuk menikmati #DonasiAnda</h3>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email</label>  
-                <input type="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email">
+                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" value="{{ old('email') }}" placeholder="Masukkan Email">
 
-                <div class="absolute right-[506px] bottom-[361px]">
+                <div class="absolute right-[506px] bottom-[341px]">
                     <i class="fa-solid fa-user"></i>
                 </div>
             </div>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi</label>
-                <input type="password" id="passwordInput" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi">
+                <input type="password" name="password" id="passwordInput" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi">
                 
-                    <div class="absolute right-[505px] bottom-[287px]" id="password">
-                        <button class="fa-solid fa-eye-slash" id="passwordLogo"></button>
+                    <div class="absolute right-[505px] bottom-[267px]" id="password">
+                        <button class="fa-solid fa-eye-slash" type="button" id="passwordLogo"></button>
                     </div>
             </div>
             <div class="flex ms-[25.5px] mt-[11.25px]">
@@ -58,10 +66,7 @@
             </div>
             <div class="flex justify-between mx-[20px]">
                 <a href="/register">
-                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Belum Punya Akun? </u></span><span class="font-medium text-[10.5px]">Daftar Sekarang</span>
-                </a>
-                <a href="/login-pengurus">
-                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Login Sebagai Pengurus Masjid?</u></span><span class="font-medium text-[10.5px]"> Disini</span>
+                    <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Belum Punya Akun?</u></span><span class="font-medium text-[10.5px]"> Daftar Sekarang</span>
                 </a>
             </div>
             
@@ -100,6 +105,16 @@
             passwordInput.type = 'password';
         }
         j++;
+    })
+
+    document.addEventListener('DOMContentLoaded', function() {
+        let message = document.querySelector('#error').value;
+            console.log(message)
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: message,
+            })
     })
 </script>
 </html>

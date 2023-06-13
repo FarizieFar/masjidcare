@@ -7,13 +7,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    <div class="hidden">
+        @if ($errors->has('name'))
+            <input type="text" value="{{ $errors->first('name') }}" id="error">
+        @elseif ($errors->has('email'))
+            <input type="text" value="{{ $errors->first('email') }}" id="error">
+        @elseif ($errors->has('phone'))
+            <input type="text" value="{{ $errors->first('phone') }}" id="error">
+        @elseif ($errors->has('password'))
+            <input type="text" value="{{ $errors->first('password') }}" id="error">
+        @elseif ($errors->has('name_masjid'))
+            <input type="text" value="{{ $errors->first('name_masjid') }}" id="error">
+        @elseif ($errors->has('alamat'))
+            <input type="text" value="{{ $errors->first('alamat') }}" id="error">
+        @elseif ($errors->has('luas'))
+            <input type="text" value="{{ $errors->first('luas') }}" id="error">
+        @elseif ($errors->has('foto'))
+            <input type="text" value="{{ $errors->first('foto') }}" id="error">
+        @elseif ($errors->has('surat'))
+            <input type="text" value="{{ $errors->first('surat') }}" id="error">
+        @endif
+    </div>
     <form action="/register-pengurus" id="form" method="post" enctype="multipart/form-data">
     @csrf
-    @error('password')
-    <span>{{ $message }}</span>
-    @enderror
     <div class="flex items-center text-[#175729] text-center" id="pengurus">
         <div class="mx-auto w-[424.5px] h-[561px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[48.5px]">
             <div>
@@ -30,7 +49,7 @@
             <h1 class="text-[24px] font-semibold">Daftarkan Pengurus Masjid</h1>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Pengurus</label>  
-                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Pengurus" name="name">
+                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Pengurus" name="name" value="{{ old('name') }}">
 
                 <div class="absolute right-[506px] bottom-[395px]">
                     <i class="fa-solid fa-user"></i>
@@ -38,7 +57,7 @@
             </div>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email Pengurus</label>  
-                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email Pengurus">
+                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email Pengurus" value="{{ old('email') }}">
 
                 <div class="absolute right-[506px] bottom-[321px]">
                     <i class="fa-solid fa-envelope"></i>
@@ -46,7 +65,7 @@
             </div>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone Pengurus</label>  
-                <input type="text" name="phone" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone Pengurus">
+                <input type="text" name="phone" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone Pengurus" value="{{ old('phone') }}">
 
                 <div class="absolute right-[506px] bottom-[247px]">
                     <i class="fa-solid fa-phone"></i>
@@ -86,7 +105,7 @@
             <h1 class="text-[24px] font-semibold">Daftarkan Masjid</h1>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Masjid</label>  
-                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Masjid" name="name_masjid">
+                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Masjid" name="name_masjid" value="{{ old('name_masjid') }}">
 
                 <div class="absolute right-[506px] bottom-[467px]">
                     <i class="fa-solid fa-mosque"></i>
@@ -94,15 +113,15 @@
             </div>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Alamat Masjid</label>  
-                <input type="text" name="alamat" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Alamat Masjid">
+                <input type="text" name="alamat" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Alamat Masjid" value="{{ old('alamat') }}">
 
                 <div class="absolute right-[506px] bottom-[393px]">
                     <i class="fa-solid fa-address-book"></i>
                 </div>
             </div>
             <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Luas Masjid (m<sup>3</sup>)</label>  
-                <input type="text" name="luas" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Luas Masjid">
+                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Luas Masjid (m<sup>2</sup>)</label>  
+                <input type="text" name="luas" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Luas Masjid" value="{{ old('luas') }}">
 
                 <div class="absolute right-[510px] bottom-[319px]">
                     <i class="fa-solid fa-ruler-vertical"></i>
@@ -134,8 +153,9 @@
                     <i class="fa-solid fa-image"></i>
                 </div>
             </div>
-
-            <div class="mb-[15.25px]">
+            <input type="hidden" value="true" name="pengurus">
+            <div class="mb-[15.25px] flex justify-evenly">
+                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]" type="button" id="kembali">Kembali</button>   
                 <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]">Submit</button>                
             </div>
             <div class="flex justify-between mx-[20px]">
@@ -192,6 +212,11 @@ $('#lanjut').click(function() {
     $('#masjid').show('fold', 1000);
 });
 
+$('#kembali').click(function() {
+    $('#masjid').hide('fold', 1000);
+    $('#pengurus').show('fold', 1000);
+});
+
 $('#foto').change(function(){
     const span = document.querySelector('#foto_span');
     const file = document.querySelector('#foto');
@@ -222,6 +247,14 @@ $('#surat').change(function(){
     }
 })
 
+document.addEventListener('DOMContentLoaded', function() {
+    let message = document.querySelector('#error').value;
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: message,
+            })
+})
 
 </script>
 </html>

@@ -1,6 +1,6 @@
-<nav class="h-44 bg-[#175729] flex items-center justify-between sticky top-0" style="z-index: 1">
+<nav class="h-24 bg-[#175729] flex items-center justify-between sticky top-0" style="z-index: 1">
     <div class="ms-24">
-        <svg width="346" height="117" viewBox="0 0 346 117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg width="240" height="88" viewBox="0 0 346 117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="346" height="117" fill="url(#pattern0)"/>
             <defs>
             <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -11,18 +11,18 @@
             </svg>
             
     </div>
-    <ul class="text-slate-200 flex gap-x-5 text-2xl">
-        <li>Beranda</li>
-        <li>Program</li>
-        <li>Tentang Kami</li>
-        <li>FAQ</li>
+    <ul class="text-slate-200 flex gap-x-5 text-lg">
+        <li><a href="/#beranda" class="hover:text-slate-300 hover:no-underline">Beranda</a></li>
+        <li><a href="/#program" class="hover:text-slate-300 hover:no-underline">Program</a></li>
+        <li><a href="/#tentangKami" class="hover:text-slate-300 hover:no-underline">Tentang Kami</a></li>
+        <li><a href="/#faq" class="hover:text-slate-300 hover:no-underline">FAQ</a></li>
     </ul>
-    <div class="flex items-center text-2xl text-slate-200 me-24 gap-x-3">
+    <div class="flex items-center text-lg text-slate-200 me-24 gap-x-3">
         @auth
             <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M28.5 49.02C21.375 49.02 15.0765 45.372 11.4 39.9C11.4855 34.2 22.8 31.065 28.5 31.065C34.2 31.065 45.5145 34.2 45.6 39.9C43.7158 42.7056 41.1707 45.0048 38.1887 46.5952C35.2068 48.1855 31.8795 49.0183 28.5 49.02ZM28.5 8.55C30.7676 8.55 32.9423 9.4508 34.5458 11.0542C36.1492 12.6577 37.05 14.8324 37.05 17.1C37.05 19.3676 36.1492 21.5423 34.5458 23.1458C32.9423 24.7492 30.7676 25.65 28.5 25.65C26.2324 25.65 24.0577 24.7492 22.4542 23.1458C20.8508 21.5423 19.95 19.3676 19.95 17.1C19.95 14.8324 20.8508 12.6577 22.4542 11.0542C24.0577 9.4508 26.2324 8.55 28.5 8.55ZM28.5 0C24.7573 0 21.0513 0.737174 17.5935 2.16943C14.1357 3.60169 10.9939 5.70099 8.34746 8.34746C3.00267 13.6922 0 20.9413 0 28.5C0 36.0587 3.00267 43.3078 8.34746 48.6525C10.9939 51.299 14.1357 53.3983 17.5935 54.8306C21.0513 56.2628 24.7573 57 28.5 57C36.0587 57 43.3078 53.9973 48.6525 48.6525C53.9973 43.3078 57 36.0587 57 28.5C57 12.7395 44.175 0 28.5 0Z" fill="white"/>
                 </svg>
-            <h1>Halo, Asad!</h1>    
+            <h1>Halo, {{ Auth::user()->name }}</h1>    
         @else
             <a href="/register">
                 <div class="h-[54px] w-[217px] bg-white text-[#175729] flex items-center rounded-[25px]"><span class="mx-auto">Daftar/Masuk</span></div>

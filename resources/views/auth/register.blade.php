@@ -7,13 +7,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    <div class="hidden">
+        @if ($errors->has('name'))
+            <input type="text" value="{{ $errors->first('name') }}" id="error">
+        @elseif ($errors->has('email'))
+            <input type="text" value="{{ $errors->first('email') }}" id="error">
+        @elseif ($errors->has('phone'))
+            <input type="text" value="{{ $errors->first('phone') }}" id="error">
+        @elseif ($errors->has('password'))
+            <input type="text" value="{{ $errors->first('password') }}" id="error">
+        @endif
+    </div>
     <form action="/register" id="form" method="post" onsubmit="pass()">
         @csrf
-    @error('password')
-    <span>{{ $message }}</span>
-    @enderror
     <div class="flex items-center text-[#175729] text-center">
         <div class="mx-auto w-[424.5px] h-[601px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[33.5px]">
             <div>
@@ -30,23 +39,22 @@
             <h1 class="text-[24px] font-semibold">Daftar Akun</h1>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Lengkap</label>  
-                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Lengkap" name="name">
-
+                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Lengkap" name="name" value="{{ old('name') }}">
                 <div class="absolute right-[506px] bottom-[410px]">
                     <i class="fa-solid fa-user"></i>
                 </div>
             </div>
             <div class="mt-[16.5px] text-left">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email</label>  
-                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email">
+                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email" value="{{ old('email') }}">
 
                 <div class="absolute right-[506px] bottom-[336px]">
                     <i class="fa-solid fa-envelope"></i>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
+            <div class="mt-[16.5px] text-left" >
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone</label>  
-                <input type="text" name="phone" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone">
+                <input type="text" name="phone" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone" value="{{ old('phone') }}">
 
                 <div class="absolute right-[506px] bottom-[262px]">
                     <i class="fa-solid fa-phone"></i>
@@ -62,8 +70,8 @@
                     </div>
             </div>
             <div class="flex ms-[25.5px] mt-[16.5px]">
-                <input type="checkbox" class="hidden" id="remember">
-                <label for="remember" class="flex items-center" id="rememberLabel">
+                <input type="checkbox" class="hidden" id="tnc" name="tnc" value="tnc" {{ old('tnc') == 'tnc'? 'checked' : '' }}>
+                <label for="tnc" class="flex items-center" id="tncLabel">
                     <div id="check" class="w-[18px] h-[18px] rounded-[5px] bg-[#D9D9D9] me-[9.75px] flex items-center">
                         
                     </div>
@@ -90,31 +98,24 @@
         
     </div>
 </form>
-
 </body>
 <script>
     function pass(){
         event.preventDefault()
-        console.log('berhasil')
-        let password = document.getElementById('passwordInput').value
-        document.getElementById('confirm').value = password
-        console.log(document.getElementById('confirm').value)
-        document.getElementById('form').submit()
-    }
-    
-
-    let label = document.querySelector('#rememberLabel');
-    let check = document.querySelector("#check");
-    let i = 1;
-    label.addEventListener('click', function(){
-        if(i % 2 == 1){
-            check.innerHTML = `<i class="fa-solid fa-check text-sm mx-auto"></i>`;
+        if(document.querySelector('#tnc').checked){
+            let password = document.getElementById('passwordInput').value
+            document.getElementById('confirm').value = password
+            console.log(document.getElementById('confirm').value)
+            document.getElementById('form').submit()
         } else {
-            check.innerHTML = '';
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: "Mohon Setujui Syarat & Ketentuan dan Kebijakan Privasi Kami",
+            })
         }
         
-        i++;
-    })
+    }
 
     let passwordLogo = document.querySelector('#passwordLogo');
     let passwordInput = document.querySelector('#passwordInput');
@@ -131,6 +132,44 @@
         }
         j++;
     })
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+            let label = document.querySelector('#tncLabel');
+            let check = document.querySelector("#check");
+            let i = 1;
+            if(document.querySelector('#tnc').checked){
+                check.innerHTML = `<i class="fa-solid fa-check text-sm mx-auto"></i>`;
+                i = 2;
+            }
+
+            label.addEventListener('click', function(){
+        
+            if(i % 2 == 1){
+                check.innerHTML = `<i class="fa-solid fa-check text-sm mx-auto"></i>`;
+            } else {
+                check.innerHTML = '';
+                
+            }  
+            i++;
+            console.log(i)
+            })
+
+            let message = document.querySelector('#error').value;
+            console.log(message)
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: message,
+            })
+
+            
+        
+    });
+
+    
+
+
 </script>
 </html>
 

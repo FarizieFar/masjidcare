@@ -1,19 +1,21 @@
 @extends('layout.main')
 @section('content')
-<div class="h-[660px] bg-[url('img/landingpage1.jpg')] bg-cover text-slate-200 justify-center text-center">
-    <div class="pt-[122px]">
-        <h1 class="text-[64px] ">Wujudkan Harapan Kami</h1>
+<div id="beranda" class="h-[550px] bg-[url('img/landingpage1.jpg')] bg-cover text-slate-200 justify-center text-center">
+    <div class="pt-[84px]">
+        <h1 class="text-[58px] ">Wujudkan Harapan Kami</h1>
         <h3 class="text-[36px] mb-8">Wujudkan istana di surga bagi seluruh masyarakat</h3>
         <div class="w-[1025px] mx-auto">
-            <p class="text-[22.5px] mb-[58px]">MasjidCare percaya bahwa setiap masjid harus menjadi tempat yang nyaman dan indah bagi umat muslim untuk beribadah dan berkegiatan sosial. Namun, membangun dan menjaga masjid tidaklah mudah. Diperlukan dukungan dari seluruh komunitas muslim untuk menjaga keberlangsungan dan memperbaiki masjid yang menjadi rumah kita bersama.</p>
+            <p class="text-[20px] mb-[64px]">MasjidCare percaya bahwa setiap masjid harus menjadi tempat yang nyaman dan indah bagi umat muslim untuk beribadah dan berkegiatan sosial. Namun, membangun dan menjaga masjid tidaklah mudah. Diperlukan dukungan dari seluruh komunitas muslim untuk menjaga keberlangsungan dan memperbaiki masjid yang menjadi rumah kita bersama.</p>
         </div>
-        <div class="w-[243px] h-[58px] flex bg-[#175729] rounded-[30px] justify-center items-center mx-auto">
-            <a href="" class="text-slate-200 m-2 text-[22.5px]">Lihat disini</a>
+        <a href="#program">
+        <div class="w-[243px] h-[64x] flex bg-[#175729] rounded-[30px] justify-center items-center mx-auto">
+            <span class="text-slate-200 m-2 text-[20px]" id="program">Lihat disini</span>
         </div>
+        </a>
     </div>
 </div>
 
-<div class="h-[736px] justify-center text-center">
+<div class="h-[736px] justify-center text-center" >
     <h1 class="text-4xl mt-[67px]"><u>Ruang Lingkup Kami</u></h1>
     <div class="w-[1200px] mx-auto">
         <p class="text-2xl mt-[70px]">MasjidCare menjembatani masyarakat yang membutuhkan prasarana ibadah dan pendidikan keagamaan yang layak dengan para donatur yang telah menyedekahkan hartanya menjadi maslahat yang besar</p>
@@ -51,19 +53,14 @@
                 </svg>
                 
             </div>
-        <div class="flex">
-            <h1 class="text-base">Renovasi Masjid</h1>
-            <h1 class="text-base">Toilet dan Tempat Wudhu</h1>  
-            <h1 class="text-base">Karpet dan Sajadah</h1>  
-            <h1 class="text-base">Al Qur'an</h1>      
-            <h1 class="text-base">Manfaat Lain</h1>
-        </div>
     </div>
 </div>
 
 <div class="h-[1422px]">
     <div class="pt-[62px] mx-auto w-[837px] relative">
-        <input class="ps-[33px] text-2xl w-[837px] h-[64px] shadow-[0_4px_4px_4px_rgba(0,0,0,0.25)] rounded-[30px]" placeholder="Telusuri “Masjid Al-Bukharahi NTT....”" type="text">
+        <form action="/masjid/">
+        <input name="q" class="ps-[33px] text-2xl w-[837px] h-[64px] shadow-[0_4px_4px_4px_rgba(0,0,0,0.25)] rounded-[30px]" placeholder="Telusuri “Masjid Al-Bukharahi NTT....”" type="text">
+        </form>
         <div class="absolute right-[27px] bottom-[14px]">
             <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25.0143 22.6415H23.4334L22.8731 22.0858C24.902 19.6652 26.0171 16.575 26.0149 13.3791C26.0149 10.7329 25.252 8.14624 23.8227 5.94606C22.3934 3.74589 20.362 2.03106 17.9852 1.01843C15.6084 0.00579694 12.993 -0.259153 10.4698 0.257081C7.94662 0.773316 5.62892 2.04755 3.80979 3.91864C1.99067 5.78974 0.751835 8.17366 0.24994 10.7689C-0.251955 13.3642 0.00563592 16.0543 0.990138 18.499C1.97464 20.9437 3.64183 23.0333 5.7809 24.5034C7.91996 25.9735 10.4348 26.7581 13.0074 26.7581C16.2293 26.7581 19.191 25.5437 21.4723 23.5266L22.0126 24.1029V25.729L32.0183 36L35 32.9331L25.0143 22.6415ZM13.0074 22.6415C8.02459 22.6415 4.00229 18.5043 4.00229 13.3791C4.00229 8.25386 8.02459 4.11664 13.0074 4.11664C17.9903 4.11664 22.0126 8.25386 22.0126 13.3791C22.0126 18.5043 17.9903 22.6415 13.0074 22.6415Z" fill="black"/>
@@ -71,79 +68,28 @@
                 
         </div>
     </div>
-    <div class="justify-center grid">
-        <div class="mt-[70px] grid grid-cols-3 gap-x-11 gap-y-10">
-            <div class="w-[404px] h-[468px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] rounded-[25px]">
-                <img src="/img/masjid-tua.jpeg" alt="" class="rounded-t-[25px] h-[244px] w-full overflow-hidden">
-                <div class="mt-[35px] w-[300px] h-[51px] ms-[20px]">
-                    <h1 class="text-[23.5px] leading-[35.25px]">Masjid Desa Nampu, Grobogan, Jawa Tengah</h1>
+    <div class="justify-center grid ms-[30px]">
+        <div class="mt-[40px] grid grid-cols-4 gap-y-10 gap-x-7">
+            @foreach($masjid as $m)
+            <div class="w-[300px] h-[400px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] rounded-[25px]">
+                <img src="{{ $m->foto }}" alt="" class="rounded-t-[25px] h-[244px] w-full overflow-hidden">
+                <div class="mt-[20px] w-[300px] h-[51px] ms-[20px]">
+                    <span class="text-xs text-slate-500">{{ $m->alamat }}</span>
+                    <h1 class="text-[23.5px] leading-[35.25px]">{{ $m->nama }}</h1>
                 </div>
                 <div class="justify-center flex">
-                    <a href="">
-                        <div class="mt-[53px] text-[23.5px] leading-[35.25px] text-slate-200 bg-[#175729] flex items-center w-[241px] h-[51px] rounded-[25px]"><span class="m-auto">Donasi</span></div>
+                    <a href="/masjid/{{ $m->id }}/detail">
+                        <div class="mt-[30px] text-base leading-[35.25px] text-slate-200 bg-[#175729] flex items-center w-[241px] h-[35px] rounded-[25px]"><span class="m-auto">Lihat Selengkapnya</span></div>
                     </a>
                 </div>
             </div>
-            <div class="w-[404px] h-[468px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] rounded-[25px]">
-                <img src="/img/masjid-tua.jpeg" alt="" class="rounded-t-[25px] h-[244px] w-full overflow-hidden">
-                <div class="mt-[35px] w-[300px] h-[51px] ms-[20px]">
-                    <h1 class="text-[23.5px] leading-[35.25px]">Masjid Desa Nampu, Grobogan, Jawa Tengah</h1>
-                </div>
-                <div class="justify-center flex">
-                    <a href="">
-                        <div class="mt-[53px] text-[23.5px] leading-[35.25px] text-slate-200 bg-[#175729] flex items-center w-[241px] h-[51px] rounded-[25px]"><span class="m-auto">Donasi</span></div>
-                    </a>
-                </div>
-            </div>
-            <div class="w-[404px] h-[468px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] rounded-[25px]">
-                <img src="/img/masjid-tua.jpeg" alt="" class="rounded-t-[25px] h-[244px] w-full overflow-hidden">
-                <div class="mt-[35px] w-[300px] h-[51px] ms-[20px]">
-                    <h1 class="text-[23.5px] leading-[35.25px]">Masjid Desa Nampu, Grobogan, Jawa Tengah</h1>
-                </div>
-                <div class="justify-center flex">
-                    <a href="">
-                        <div class="mt-[53px] text-[23.5px] leading-[35.25px] text-slate-200 bg-[#175729] flex items-center w-[241px] h-[51px] rounded-[25px]"><span class="m-auto">Donasi</span></div>
-                    </a>
-                </div>
-            </div>
-            <div class="w-[404px] h-[468px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] rounded-[25px]">
-                <img src="/img/masjid-tua.jpeg" alt="" class="rounded-t-[25px] h-[244px] w-full overflow-hidden">
-                <div class="mt-[35px] w-[300px] h-[51px] ms-[20px]">
-                    <h1 class="text-[23.5px] leading-[35.25px]">Masjid Desa Nampu, Grobogan, Jawa Tengah</h1>
-                </div>
-                <div class="justify-center flex">
-                    <a href="">
-                        <div class="mt-[53px] text-[23.5px] leading-[35.25px] text-slate-200 bg-[#175729] flex items-center w-[241px] h-[51px] rounded-[25px]"><span class="m-auto">Donasi</span></div>
-                    </a>
-                </div>
-            </div>
-            <div class="w-[404px] h-[468px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] rounded-[25px]">
-                <img src="/img/masjid-tua.jpeg" alt="" class="rounded-t-[25px] h-[244px] w-full overflow-hidden">
-                <div class="mt-[35px] w-[300px] h-[51px] ms-[20px]">
-                    <h1 class="text-[23.5px] leading-[35.25px]">Masjid Desa Nampu, Grobogan, Jawa Tengah</h1>
-                </div>
-                <div class="justify-center flex">
-                    <a href="">
-                        <div class="mt-[53px] text-[23.5px] leading-[35.25px] text-slate-200 bg-[#175729] flex items-center w-[241px] h-[51px] rounded-[25px]"><span class="m-auto">Donasi</span></div>
-                    </a>
-                </div>
-            </div>
-            <div class="w-[404px] h-[468px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] rounded-[25px]">
-                <img src="/img/masjid-tua.jpeg" alt="" class="rounded-t-[25px] h-[244px] w-full overflow-hidden">
-                <div class="mt-[35px] w-[300px] h-[51px] ms-[20px]">
-                    <h1 class="text-[23.5px] leading-[35.25px]">Masjid Desa Nampu, Grobogan, Jawa Tengah</h1>
-                </div>
-                <div class="justify-center flex">
-                    <a href="">
-                        <div class="mt-[53px] text-[23.5px] leading-[35.25px] text-slate-200 bg-[#175729] flex items-center w-[241px] h-[51px] rounded-[25px]"><span class="m-auto">Donasi</span></div>
-                    </a>
-                </div>
-            </div>
+            @endforeach
+        
     
         </div>
     </div>
     <div class="justify-center grid">
-        <a href="">
+        <a href="/masjid">
             <div class="flex items-center mt-[77px] w-[321px] h-[60px] rounded-[30px] shadow-[0_4px_4px_4px_rgba(0,0,0,0.25)] text-[23.5px] leading-[35.25px] text-[#175729]">
                 <span class="m-auto">Lihat Selengkapnya</span>
             </div>
@@ -153,7 +99,7 @@
 </div>
 
 {{-- Tentang Kami --}}
-<div class="h-[713px] text-[40px] leading-[60px] text-center">
+<div class="h-[713px] text-[40px] leading-[60px] text-center" id="tentangKami">
     <h1 class="mt-[26.2px]"><u>Tentang Kami</u></h1>
     <div class="mx-auto w-[1143px] h-[516px] rounded-[25px] bg-[#175729] mt-[25.92px] flex">
         <img src="/img/kotak-amal.jpg" alt="" class="rounded-l-[25px] w-[515.72px] overflow-hidden">
@@ -171,7 +117,7 @@
 </div>
 {{-- End Tentang Kami --}}
 {{-- FAQ --}}
-<div class="text-center h-[470px]">
+<div class="text-center h-[470px]" id="faq">
     <h1 class="mt-[15.39px] text-[40px] leading-[60px] "><u>FAQ</u></h1>
     <h3 class="text-base"><u><b>Frequently Asked Questions</b></u></h3>
     <div class="grid grid-cols-3 mt-[31.11px] gap-y-8">

@@ -13,10 +13,10 @@
         
         
         </div>
-        <div class="text-center mt-24">
+        <div class="text-center mt-8">
             <form action="/sudah-transfer/{{ $donasi->id }}" method="post">
                 @csrf
-                <button class="bg-[#175729] text-white h-[50px] px-[20px] rounded-[25px]">Saya Sudah Transfer</button>
+                <button class="bg-[#175729] mb-2 text-white h-[50px] px-[20px] rounded-[25px]">Saya Sudah Transfer</button>
             </form>
             
             <button class="bg-[#175729] text-white h-[50px] px-[20px] rounded-[25px]">Kembali Ke Home</button>

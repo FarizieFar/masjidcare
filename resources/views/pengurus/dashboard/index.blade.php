@@ -12,7 +12,7 @@
             <div class="icon">
               <i class="ion ion-ios-filing"></i>
             </div>
-            <a href="/admin-dashboard/data-donasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/pengurus-dashboard/data-donasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
     </div>
     <div class="col-lg-3">
@@ -25,7 +25,7 @@
             <div class="icon">
               <i class="ion ion-cash"></i>
             </div>
-            <a href="/admin-dashboard/data-donasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/pengurus-dashboard/data-donasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
     </div>
     <div class="col-lg-3">
@@ -38,7 +38,7 @@
             <div class="icon">
               <i class="ion ion-person"></i>
             </div>
-            <a href="/admin-dashboard/data-donasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/pengurus-dashboard/permintaan-pencairan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
     </div>
     <div class="col-lg-3">
@@ -51,7 +51,7 @@
             <div class="icon">
               <i class="ion ion-social-usd"></i>
             </div>
-            <a href="/admin-dashboard/data-donasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/pengurus-dashboard/permintaan-pencairan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
     </div>
     </div>  

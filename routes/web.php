@@ -63,6 +63,7 @@ Route::post('/admin-dashboard/tolak-pencairan/{id}', [AdminController::class, 't
 Route::get('/admin-dashboard/request-donasi', [AdminController::class, 'requestDonasi']);
 Route::post('/admin-dashboard/approve-donasi/{id}', [AdminController::class, 'terimaDonasi']);
 Route::post('/admin-dashboard/decline-donasi/{id}', [AdminController::class, 'tolakDonasi']);
+Route::get('/admin-dashboard/total-donasi', [AdminController::class, 'totalDonasi']);
 });
 // EndAdmin
 
@@ -73,6 +74,7 @@ Route::middleware(['approved'])->group(function(){
     Route::get('/pengurus-dashboard', [PengurusMasjidController::class, 'index']);
     Route::get('/pengurus-dashboard/data-donasi', [PengurusMasjidController::class, 'getDataDonasi']);
     Route::get('/pengurus-dashboard/permintaan-pencairan', [PengurusMasjidController::class, 'getDataPencairanRequest']);
+    Route::get('/pengurus-dashboard/data-donasi/cetak_pdf', [PengurusMasjidController::class, 'cetakPdfDataDonasi']);
     Route::post('/tarik-dana', [PengurusMasjidController::class, 'tarikDana']);
 });
 Route::get('/not-approved', function(){

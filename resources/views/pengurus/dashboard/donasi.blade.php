@@ -2,7 +2,10 @@
 @section('content')
 <div>
     <div class="text-right mb-2">
+      <div class="d-flex justify-content-between">
+        <a href="/pengurus-dashboard/data-donasi/cetak_pdf" class="btn btn-primary">Cetak Semua</a>
         <button class="btn btn-success" data-toggle="modal" data-target="#sort">Cari Berdasarkan Tanggal</button>
+      </div>
         <div class="text-left modal fade" id="sort" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">

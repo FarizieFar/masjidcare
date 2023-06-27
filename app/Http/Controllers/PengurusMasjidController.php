@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use PDF;
 
 class PengurusMasjidController extends Controller
 {
@@ -154,7 +155,6 @@ class PengurusMasjidController extends Controller
                 $masjid->nomor_rekening = $request->get('norek');
             }
             $pencairan->pdf_laporan = $dokumen;
-            $masjid->saldo -= $pencairan->nominal;
             $masjid->save();
             $pencairan->masjid()->associate($masjid);
             $pencairan->save();
@@ -180,5 +180,11 @@ class PengurusMasjidController extends Controller
         }
       
         return $formattedAngka . $satuan;
+      }
+
+      public function cetakPdfDataDonasi(){
+        $donasi = Donasi::with('user')->where('masjid_id', '=', Auth::user()->masjid->id)->where('status', '=', 'Approved')->orderBy('tanggal', 'asc')->get();
+        $pdf = PDF::loadview('pengurus.dashboard.cetak_pdf',['donasi' => $donasi]);
+        return $pdf->stream();
       }
 }

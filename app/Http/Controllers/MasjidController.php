@@ -23,12 +23,12 @@ class MasjidController extends Controller
     public function index(Request $request){
         $query = '';
         $sort_by = null;
-
+        $masjid = Masjid::where('request', '=', 'Approved');
         if($request->get('q')){
             $query = $request->get('q');
-            $masjid = Masjid::where('request', '=', 'Approved')->where('nama', 'like', "%$query%");
+            $masjid = $masjid->where('nama', 'like', "%$query%");
         } else {
-            $masjid = Masjid::where('request', '=', 'Approved');
+            $masjid = $masjid->where('request', '=', 'Approved');
         }
 
         if($request->get('sort_by')){
@@ -64,8 +64,8 @@ class MasjidController extends Controller
 
     public function show($id){
         $masjid = Masjid::with('user')->find($id);
-        $donasi = Donasi::with('user')->where('masjid_id', '=', $masjid->id)->get()->sortByDesc('tanggal');
-        $pencairan = Pencairan::where('status', '=', 'Approved')->get()->sortByDesc('tanggal');
+        $donasi = Donasi::with('user')->where('masjid_id', '=', $masjid->id)->where('status', '=', 'Approved')->get()->sortByDesc('tanggal');
+        $pencairan = Pencairan::where('status', '=', 'Approved')->where('masjid_id', '=', $masjid->id)->get()->sortByDesc('tanggal');
 
         $total_didapat = 0;
         foreach($donasi as $d){

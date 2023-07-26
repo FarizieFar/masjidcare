@@ -39,7 +39,6 @@ Route::get('masjid/{id}/pembayaran', [MasjidController::class, 'pembayaran']);
 Route::post('/pembayaran/{idPenerima}/oleh/{idPengirim}', [MasjidController::class, 'pengiriman']);
 Route::get('/pembayaran/{id}', [MasjidController::class, 'metode']);
 Route::get('/history', [MasjidController::class, 'history']);
-Route::post('/sudah-transfer/{id}', [MasjidController::class, 'transfer']);
 });
 //User
 

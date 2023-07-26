@@ -14,14 +14,52 @@
         
         </div>
         <div class="text-center mt-8">
-            <form action="/sudah-transfer/{{ $donasi->id }}" method="post">
-                @csrf
-                <button class="bg-[#175729] mb-2 text-white h-[50px] px-[20px] rounded-[25px]">Saya Sudah Transfer</button>
-            </form>
+                <button class="bg-[#175729] mb-2 text-white h-[50px] px-[20px] rounded-[25px]" id="pay-button">Transfer</button>
             
-            <button class="bg-[#175729] text-white h-[50px] px-[20px] rounded-[25px]">Kembali Ke Home</button>
+            <a href="/history"><button class="bg-[#175729] text-white h-[50px] px-[20px] rounded-[25px]">Ke History</button></a>
         </div>
         
     </div>
+    <div id="snap-container"></div>
 </div>
 @endsection
+@push('custom_js')
+<script type="text/javascript">
+  // For example trigger on button clicked, or any time you need
+  var payButton = document.getElementById('pay-button');
+  payButton.addEventListener('click', function () {
+    // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+    window.snap.pay('{{ $donasi->snap_token }}', {
+      onSuccess: function(result){
+        /* You may add your own implementation here */
+        Swal.fire({
+          icon: 'success',
+          title: 'Yeay...',
+          text: 'Pembayaran Berhasil!'
+        }).then((result) => {
+          if(result.isConfirmed){
+            window.location.href = '/history';
+          }
+        });
+      },
+      onPending: function(result){
+        /* You may add your own implementation here */
+        Swal.fire({
+          icon: 'warning',
+          title: 'Wait...',
+          text: 'Pembayaran Pending!'
+        });
+      },
+      onError: function(result){
+        /* You may add your own implementation here */
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Pembayaran Gagal!'
+        })
+      }
+    })
+  });
+</script>
+@endpush
+

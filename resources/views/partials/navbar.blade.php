@@ -1,5 +1,6 @@
 <nav class="h-24 bg-[#175729] flex items-center justify-between sticky top-0" style="z-index: 1">
     <div class="ms-24">
+        <a href="/">
         <svg width="240" height="88" viewBox="0 0 346 117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="346" height="117" fill="url(#pattern0)"/>
             <defs>
@@ -10,7 +11,8 @@
             </defs>
             </svg>
             
-    </div>
+    
+        </a></div>
     <ul class="text-slate-200 flex gap-x-5 text-lg">
         <li><a href="/#beranda" class="hover:text-slate-300 hover:no-underline">Beranda</a></li>
         <li><a href="/#program" class="hover:text-slate-300 hover:no-underline">Program</a></li>

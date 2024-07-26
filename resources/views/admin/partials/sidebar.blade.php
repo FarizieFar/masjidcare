@@ -78,6 +78,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/admin-dashboard/total-donasi" class="nav-link">
+              <i class="nav-icon fas fa-money-bill"></i>
+              <p>
+                Total Donasi Masjid
+              </p>
+            </a>
+          </li>
           <li class="nav-header mt-3">PESAN DAN PERMINTAAN</li>
           <li class="nav-item">
             <a href="/admin-dashboard/pencairan" class="nav-link">

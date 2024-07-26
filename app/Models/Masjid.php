@@ -16,7 +16,7 @@ class Masjid extends Model
     }
 
     public function pencairan(){
-        return $this->hasOne(Pencairan::class);
+        return $this->hasMany(Pencairan::class);
     }
 
     public function donasi(){

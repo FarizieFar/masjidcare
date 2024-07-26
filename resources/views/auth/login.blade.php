@@ -34,22 +34,29 @@
             </div>
             <h1 class="text-[24px] font-semibold">Selamat Datang</h1>
             <h3 class="font-medium text-[15px]">Masuk untuk menikmati #DonasiAnda</h3>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email</label>  
-                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" value="{{ old('email') }}" placeholder="Masukkan Email">
-
-                <div class="absolute right-[506px] bottom-[341px]">
-                    <i class="fa-solid fa-user"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="email" class="font-semibold text-[11.25px] ms-[27.75px]">Email</label>
+                <div class="relative">
+                    <input type="email" id="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[30px] transition duration-300 ease-in-out hover:bg-[#a0d3a1]" value="{{ old('email') }}" placeholder="Masukkan Email">
+                    <div class="absolute right-[35px] top-[50%] transform -translate-y-[50%]">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi</label>
-                <input type="password" name="password" id="passwordInput" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi">
-                
-                    <div class="absolute right-[505px] bottom-[267px]" id="password">
-                        <button class="fa-solid fa-eye-slash" type="button" id="passwordLogo"></button>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="passwordInput" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi</label>
+                <div class="relative">
+                    <input type="password" name="password" id="passwordInput" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[40px] transition duration-300 ease-in-out hover:bg-[#a0d3a1]" placeholder="Masukkan Kata Sandi">
+                    <div class="absolute right-[30px] top-[50%] transform -translate-y-[50%]">
+                        <button class="fa-solid fa-eye-slash bg-transparent border-none" type="button" id="passwordLogo"></button>
                     </div>
+                </div>
             </div>
+            
+            
+            
+            
+            
             <div class="flex ms-[25.5px] mt-[11.25px]">
                 <input type="checkbox" class="hidden" id="remember">
                 <label for="remember" class="flex items-center" id="rememberLabel">
@@ -62,8 +69,10 @@
                 
             </div>
             <div class="mb-[18.25px]">
-                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]">Masuk</button>                
-            </div>
+                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px] transition duration-300 ease-in-out hover:bg-[#1d8e3c]">
+                    Masuk
+                </button>                
+            </div>            
             <div class="flex justify-between mx-[20px]">
                 <a href="/register">
                     <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Belum Punya Akun?</u></span><span class="font-medium text-[10.5px]"> Daftar Sekarang</span>

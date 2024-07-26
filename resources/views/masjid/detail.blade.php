@@ -23,7 +23,7 @@
             <h3>Nama: {{ $masjid->user->name }}</h3>
             <h3>Email: {{ $masjid->user->email }}</h3>
             <div class="flex items-center mt-6">
-                <a href="/masjid/1/pembayaran" class="hover:no-underline me-2">
+                <a href="/masjid/{{ $masjid->id }}/pembayaran" class="hover:no-underline me-2">
                     <div class="bg-[#175729] h-[50px] w-[150px] flex items-center rounded-[25px]" onclick="bayar()">
                         <span class="text-white text-2xl mx-auto">Donasi</span>
                     </div>

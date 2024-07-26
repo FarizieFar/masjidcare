@@ -107,8 +107,10 @@ class AdminController extends Controller
     }
 
     public function terimaPencairan($id){
-        $pencairan = Pencairan::find($id);
+        $pencairan = Pencairan::with('masjid')->where('id', '=', $id)->first();
         $pencairan->status = 'Approved';
+        $pencairan->masjid->saldo -= $pencairan->nominal;
+        $pencairan->masjid->save();
         $pencairan->save();
         return redirect()->back();
     }
@@ -152,6 +154,33 @@ class AdminController extends Controller
         $donasi->status = 'Declined';
         $donasi->save();
         return redirect()->back();
+    }
+
+    public function totalDonasi(){
+        $masjidNotif = User::where('level', '=', 'pengurus')->with('masjid')->get();
+        $masjid = Masjid::with('user')->where('request', '=', 'approved')->get();
+        $donasi = Donasi::with('masjid')->where('status', '=', 'Approved')->get();
+        $arrayTotalDonasi = [];
+        foreach($donasi as $d){
+            foreach($masjid as $m){
+                if($m->id == $d->masjid->id){
+                    if(isset($arrayTotalDonasi[$m->id])){
+                        $arrayTotalDonasi[$m->id] += $d->nominal;
+                    } else {
+                        $arrayTotalDonasi[$m->id] = $d->nominal;
+                    }
+                    
+                }
+            }
+        }
+        $masjid = Masjid::with('user')->where('request', '=', 'approved')->paginate(10);
+        return view('admin.dashboard.total_donasi', [
+            'data' => $masjid,
+            'total_donasi' => $arrayTotalDonasi,
+            'title' => 'Data Donasi Masjid',
+            'masjid'=> $masjidNotif,
+            'link' => '/admin-dashboard/total-donasi',
+        ]);
     }
 
 }

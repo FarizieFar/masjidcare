@@ -26,7 +26,7 @@
     <div class="flex items-center text-[#175729] text-center">
         <div class="mx-auto w-[424.5px] h-[601px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[33.5px]">
             <div>
-                <svg class="mx-auto mt-[16.5px]" width="238.25" height="95.25" viewBox="0 0 319 127" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg class="mx-auto mt-[16.5px] transition-transform duration-300 ease-in-out hover:scale-105" width="238.25" height="95.25" viewBox="0 0 319 127" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="319" height="127" rx="63.5" fill="url(#pattern0)"/>
                     <defs>
                     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -37,51 +37,63 @@
                     </svg>    
             </div>
             <h1 class="text-[24px] font-semibold">Daftar Akun</h1>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Lengkap</label>  
-                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Lengkap" name="name" value="{{ old('name') }}">
-                <div class="absolute right-[506px] bottom-[410px]">
-                    <i class="fa-solid fa-user"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="name" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Lengkap</label>  
+                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] relative hover:shadow-lg hover:border-2 hover:border-[#175729] transition duration-300">
+                    <input type="text" id="name" name="name" class="w-full h-full rounded-[25px] bg-transparent pl-[13.5px] pr-[30px] focus:outline-none" placeholder="Masukkan Nama Lengkap" value="{{ old('name') }}">
+                    <i class="fa-solid fa-user absolute right-[10px]"></i>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email</label>  
-                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email" value="{{ old('email') }}">
-
-                <div class="absolute right-[506px] bottom-[336px]">
-                    <i class="fa-solid fa-envelope"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="email" class="font-semibold text-[11.25px] ms-[27.75px]">Email</label>  
+                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] relative hover:shadow-lg hover:border-2 hover:border-[#175729] transition duration-300">
+                    <input type="email" id="email" name="email" class="w-full h-full rounded-[25px] bg-transparent pl-[13.5px] pr-[30px] focus:outline-none" placeholder="Masukkan Email" value="{{ old('email') }}">
+                    <i class="fa-solid fa-envelope absolute right-[10px]"></i>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left" >
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone</label>  
-                <input type="text" name="phone" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone" value="{{ old('phone') }}">
-
-                <div class="absolute right-[506px] bottom-[262px]">
-                    <i class="fa-solid fa-phone"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="phone" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone</label>  
+                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] relative hover:shadow-lg hover:border-2 hover:border-[#175729] transition duration-300">
+                    <input type="text" id="phone" name="phone" class="w-full h-full rounded-[25px] bg-transparent pl-[13.5px] pr-[30px] focus:outline-none" placeholder="Masukkan No. Handphone" value="{{ old('phone') }}">
+                    <i class="fa-solid fa-phone absolute right-[10px]"></i>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi</label>
-                <input type="password" id="passwordInput" name="password" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi">
-                <input type="hidden" name="password_confirmation" id="confirm">
-                
-                    <div class="absolute right-[505px] bottom-[188px]" id="password">
-                        <button class="fa-solid fa-eye-slash" id="passwordLogo" type="button"></button>
-                    </div>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="passwordInput" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi</label>
+                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] relative hover:shadow-lg hover:border-2 hover:border-[#175729] transition duration-300">
+                    <input type="password" id="passwordInput" name="password" class="w-full h-full rounded-[25px] bg-transparent pl-[13.5px] pr-[30px] focus:outline-none" placeholder="Masukkan Kata Sandi">
+                    <button class="fa-solid fa-eye-slash absolute right-[10px] bg-transparent border-none" id="passwordLogo" type="button"></button>
+                </div>
             </div>
+            
             <div class="flex ms-[25.5px] mt-[16.5px]">
-                <input type="checkbox" class="hidden" id="tnc" name="tnc" value="tnc" {{ old('tnc') == 'tnc'? 'checked' : '' }}>
-                <label for="tnc" class="flex items-center" id="tncLabel">
-                    <div id="check" class="w-[18px] h-[18px] rounded-[5px] bg-[#D9D9D9] me-[9.75px] flex items-center">
-                        
+                <input type="checkbox" class="hidden" id="tnc" name="tnc" value="tnc" {{ old('tnc') == 'tnc' ? 'checked' : '' }}>
+                <label for="tnc" class="flex items-center cursor-pointer" id="tncLabel">
+                    <div id="check" class="w-[18px] h-[18px] rounded-[5px] bg-[#D9D9D9] me-[9.75px] flex items-center justify-center transition duration-300 ease-in-out">
+                        <svg id="checkmark" class="hidden w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg>
                     </div>
-                  </label>
+                </label>
                 <span class="font-semibold text-[11.25px] text-left">Saya telah membaca dan menyetujui <a href="/terms-and-condition" class="underline">Syarat dan Ketentuan</a> dan <a href="/privacy-terms" class="underline">Kebijakan Privasi</a> MasjidCare</span>
-                
             </div>
+            <style>
+                #tncLabel:hover #check {
+                    background-color: #175729;
+                }
+            
+                #tnc:checked + #tncLabel #check {
+                    background-color: #175729;
+                }
+            
+                #tnc:checked + #tncLabel #checkmark {
+                    display: block;
+                }
+            </style>
             <div class="mb-[15.25px]">
-                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]">Daftar</button>                
+                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px] transition duration-300 ease-in-out transform hover:bg-[#0f3e1f] hover:scale-105 hover:shadow-lg">Daftar</button>
             </div>
+            
             <div class="flex justify-between mx-[20px]">
                 <span>
                     <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Sudah Punya Akun?</u></span><span class="font-medium text-[10.5px]"> <a href="/login">Login</a></span>

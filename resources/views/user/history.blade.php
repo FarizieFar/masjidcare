@@ -2,7 +2,7 @@
 @section('content')
 <h1 class="text-2xl font-semibold text-center mt-8 mb-8">Histori Donasi</h1>
 <div class="ms-12 mb-36">
-    <div class="grid grid-cols-3 gap-x-5">
+    <div class="grid grid-cols-3 gap-x-5 gap-y-2">
         @foreach($history as $h)
         <div class="w-[400px] border-4 text-center">
         
@@ -12,15 +12,12 @@
             @if($h->isAnonim === 'True')
             <span class="text-red-500 text-xs">Sebagai Anonim</span><br>
             @else 
-            <span class="text-red-500 text-xs">>Bukan Sebagai Anonim</span><br>
+            <span class="text-red-500 text-xs">Bukan Sebagai Anonim</span><br>
             @endif
             <span>Metode: Bank {{ $h->metode->nama }}</span><br>
             @if($h->isProcessed === 'False')
             <span>Nomor Rekening: {{ $h->metode->nomor }}</span>
-            <form class="mt-8 mb-4" action="/sudah-transfer/{{ $h->id }}" method="post">
-                @csrf
-            <button class="bg-[#175729] text-white w-[300px] h-[40px] rounded-[25px]">Saya sudah transfer</button>
-            </form>
+            <button class="bg-[#175729] text-white w-[300px] h-[40px] rounded-[25px] mt-4 mb-2" onclick="pay('{{ $h->snap_token }}')">Transfer</button>
             @else
             @if($h->status === 'Pending')
             <div class="ms-10">
@@ -50,3 +47,39 @@
 
 
 @endsection
+@push('custom_js')
+<script type="text/javascript">
+function pay(kode){
+    window.snap.pay(kode, {
+      onSuccess: function(result){
+        /* You may add your own implementation here */
+        Swal.fire({
+          icon: 'success',
+          title: 'Yeay...',
+          text: 'Pembayaran Berhasil!'
+        }).then((result) => {
+          if(result.isConfirmed){
+            window.location.href = '/history';
+          }
+        });
+      },
+      onPending: function(result){
+        /* You may add your own implementation here */
+        Swal.fire({
+          icon: 'warning',
+          title: 'Wait...',
+          text: 'Pembayaran Pending!'
+        });
+      },
+      onError: function(result){
+        /* You may add your own implementation here */
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Pembayaran Gagal!'
+        });
+      }
+    })
+}
+</script>
+@endpush

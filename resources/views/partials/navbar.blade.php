@@ -1,5 +1,6 @@
 <nav class="h-24 bg-[#175729] flex items-center justify-between sticky top-0" style="z-index: 1">
     <div class="ms-24">
+        <a href="/">
         <svg width="240" height="88" viewBox="0 0 346 117" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="346" height="117" fill="url(#pattern0)"/>
             <defs>
@@ -10,13 +11,61 @@
             </defs>
             </svg>
             
-    </div>
-    <ul class="text-slate-200 flex gap-x-5 text-lg">
-        <li><a href="/#beranda" class="hover:text-slate-300 hover:no-underline">Beranda</a></li>
-        <li><a href="/#program" class="hover:text-slate-300 hover:no-underline">Program</a></li>
-        <li><a href="/#tentangKami" class="hover:text-slate-300 hover:no-underline">Tentang Kami</a></li>
-        <li><a href="/#faq" class="hover:text-slate-300 hover:no-underline">FAQ</a></li>
-    </ul>
+    
+        </a></div>
+        <ul class="text-slate-200 flex gap-x-5 text-lg">
+            <li>
+                <a href="/#beranda" class="menu-item">Beranda</a>
+            </li>
+            <li>
+                <a href="/#program" class="menu-item">Program</a>
+            </li>
+            <li>
+                <a href="/#tentangKami" class="menu-item">Tentang Kami</a>
+            </li>
+            <li>
+                <a href="/#faq" class="menu-item">FAQ</a>
+            </li>
+        </ul>
+        
+        <style>
+        .menu-item {
+            position: relative;
+            padding: 0.5rem 1rem; /* Menambahkan padding untuk area klik yang lebih besar */
+            text-decoration: none; /* Menghilangkan garis bawah */
+            color: #cbd5e1; /* Warna teks */
+            border-radius: 5px; /* Sudut melengkung */
+            transition: all 0.3s ease; /* Transisi untuk semua efek */
+        }
+        
+        .menu-item:hover {
+            color: #ffffff; /* Mengubah warna teks saat hover */
+            background-color: rgba(255, 255, 255, 0.1); /* Memberikan latar belakang transparan */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Memberikan efek bayangan timbul */
+            transform: translateY(-4px); /* Sedikit mengangkat item saat hover */
+            cursor: pointer; /* Mengubah kursor menjadi pointer */
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0%;
+            height: 2px; /* Ketebalan garis */
+            background-color: #ffffff; /* Warna garis */
+            transition: width 0.3s ease, left 0.3s ease; /* Transisi untuk garis */
+        }
+        
+        .menu-item:hover::before {
+            width: 100%; /* Memperluas garis saat hover */
+            left: 0; /* Mengatur posisi kiri garis */
+        }
+        </style>
+        
+        
+        
+        
     <div class="flex items-center text-lg text-slate-200 me-24 gap-x-3">
         @auth
             <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,8 +73,22 @@
                 </svg>
             <h1>Halo, {{ Auth::user()->name }}</h1>    
         @else
+        <style>
+            .daftar-masuk {
+                transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+                cursor: pointer;
+            }
+    
+            .daftar-masuk:hover {
+                background-color: #175729; /* Warna latar belakang saat hover */
+                color: #ffffff; /* Warna teks saat hover */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Bayangan saat hover */
+            }
+        </style>
             <a href="/register">
-                <div class="h-[54px] w-[217px] bg-white text-[#175729] flex items-center rounded-[25px]"><span class="mx-auto">Daftar/Masuk</span></div>
+                <div class="daftar-masuk h-[54px] w-[217px] bg-white text-[#175729] flex items-center rounded-[25px]">
+                    <span class="mx-auto">Daftar/Masuk</span>
+                </div>
             </a>
         @endauth
                 

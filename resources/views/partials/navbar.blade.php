@@ -13,7 +13,7 @@
             
     
         </a></div>
-<<<<<<< HEAD
+
         <ul class="text-slate-200 flex gap-x-5 text-lg">
             <li>
                 <a href="/#beranda" class="menu-item">Beranda</a>
@@ -66,15 +66,8 @@
         
         
         
-        
-=======
-    <ul class="text-slate-200 flex gap-x-5 text-lg">
-        <li><a href="/#beranda" class="hover:text-slate-300 hover:no-underline">Beranda</a></li>
-        <li><a href="/#program" class="hover:text-slate-300 hover:no-underline">Program</a></li>
-        <li><a href="/#tentangKami" class="hover:text-slate-300 hover:no-underline">Tentang Kami</a></li>
-        <li><a href="/#faq" class="hover:text-slate-300 hover:no-underline">FAQ</a></li>
-    </ul>
->>>>>>> 2760af15d457652338a70527667497e83079bbc2
+
+
     <div class="flex items-center text-lg text-slate-200 me-24 gap-x-3">
         @auth
             <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">

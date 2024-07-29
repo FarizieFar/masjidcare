@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Include SweetAlert2 CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.15/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.15/sweetalert2.min.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -47,43 +51,77 @@
                     </svg>    
             </div>
             <h1 class="text-[24px] font-semibold">Daftarkan Pengurus Masjid</h1>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Pengurus</label>  
-                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Pengurus" name="name" value="{{ old('name') }}">
-
-                <div class="absolute right-[506px] bottom-[395px]">
-                    <i class="fa-solid fa-user"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="name" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Pengurus</label>  
+                <div class="relative ms-[20.25px] w-[384.75px] h-[33.75px]">
+                    <input type="text" class="w-full h-full rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input" placeholder="Masukkan Nama Pengurus" name="name" value="{{ old('name') }}">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Email Pengurus</label>  
-                <input type="email" name="email" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Email Pengurus" value="{{ old('email') }}">
-
-                <div class="absolute right-[506px] bottom-[321px]">
-                    <i class="fa-solid fa-envelope"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="email" class="font-semibold text-[11.25px] ms-[27.75px]">Email Pengurus</label>  
+                <div class="relative ms-[20.25px] w-[384.75px] h-[33.75px]">
+                    <input type="email" name="email" class="w-full h-full rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input" placeholder="Masukkan Email Pengurus" value="{{ old('email') }}">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone Pengurus</label>  
-                <input type="text" name="phone" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan No. Handphone Pengurus" value="{{ old('phone') }}">
-
-                <div class="absolute right-[506px] bottom-[247px]">
-                    <i class="fa-solid fa-phone"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="phone" class="font-semibold text-[11.25px] ms-[27.75px]">No. Handphone Pengurus</label>  
+                <div class="relative ms-[20.25px] w-[384.75px] h-[33.75px]">
+                    <input type="text" name="phone" class="w-full h-full rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input" placeholder="Masukkan No. Handphone Pengurus" value="{{ old('phone') }}">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi Pengurus</label>
-                <input type="password" id="passwordInput" name="password" class="ms-[20.25px] w-[384.75px] h-[33.75px]  rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Kata Sandi Pengurus">
-                <input type="hidden" name="password_confirmation" id="confirm">
-                
-                    <div class="absolute right-[505px] bottom-[173px]" id="password">
+            <div class="mt-[16.5px] text-left relative">
+                <label for="password" class="font-semibold text-[11.25px] ms-[27.75px]">Kata Sandi Pengurus</label>
+                <div class="relative ms-[20.25px] w-[384.75px] h-[33.75px]">
+                    <input type="password" id="passwordInput" name="password" class="w-full h-full rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input" placeholder="Masukkan Kata Sandi Pengurus">
+                    <input type="hidden" name="password_confirmation" id="confirm">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
                         <button class="fa-solid fa-eye-slash" id="passwordLogo" type="button"></button>
                     </div>
+                </div>
             </div>
 
+            <style>
+                .hover-button:hover {
+                    background-color: #154C21; /* Change background color on hover */
+                }
+            </style>
+            
             <div class="mb-[15.25px]">
-                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]" type="button" id="lanjut">Lanjut</button>                
+                <button 
+                    class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px] hover-button" 
+                    type="button" 
+                    id="lanjut" 
+                    onclick="showAlert()">
+                    Lanjut
+                </button>                
             </div>
+            
+            <script>
+                function showAlert() {
+                    Swal.fire({
+                        title: 'Melanjutkan...',
+                        text: 'Anda akan melanjutkan ke form mengisi Nama Masjid.',
+                        icon: 'info',
+                        confirmButtonText: 'OK',
+                        backdrop: true, // Add a backdrop
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirect to the next page if needed
+                            // window.location.href = 'url_to_next_form'; // Uncomment this line and specify the URL to redirect
+                        }
+                    });
+                }
+            </script>
+            
             <div class="flex justify-between mx-[20px]">
                 <span>
                     <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Sudah Punya Akun?</u></span><span class="font-medium text-[10.5px]"> <a href="/login">Login</a></span>
@@ -103,61 +141,121 @@
     <div class="flex items-center text-[#175729] text-center hidden" id="masjid">
         <div class="pt-[40px] mx-auto w-[424.5px] h-[561px] rounded-[25px] shadow-[0_4px_4px_5px_rgba(0,0,0,0.25)] mt-[48.5px]">
             <h1 class="text-[24px] font-semibold">Daftarkan Masjid</h1>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Masjid</label>  
-                <input type="text" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Nama Masjid" name="name_masjid" value="{{ old('name_masjid') }}">
-
-                <div class="absolute right-[506px] bottom-[467px]">
-                    <i class="fa-solid fa-mosque"></i>
+            <div class="mt-[16.5px] text-left relative">
+                <label for="name_masjid" class="font-semibold text-[11.25px] ms-[27.75px]">Nama Masjid</label>  
+                <div class="relative ms-[20.25px] w-[384.75px] h-[33.75px]">
+                    <input type="text" class="w-full h-full rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input" placeholder="Masukkan Nama Masjid" name="name_masjid" value="{{ old('name_masjid') }}">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Alamat Masjid</label>  
-                <input type="text" name="alamat" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Alamat Masjid" value="{{ old('alamat') }}">
-
-                <div class="absolute right-[506px] bottom-[393px]">
-                    <i class="fa-solid fa-address-book"></i>
+            
+            <style>
+                .hover-input:hover {
+                    background-color: #A8A8A8; /* Change background color on hover */
+                }
+            
+                .hover-button:hover {
+                    background-color: #154C21; /* Change background color on hover */
+                }
+            </style>
+            
+            
+            <div class="mt-[16.5px] text-left relative">
+                <label for="alamat" class="font-semibold text-[11.25px] ms-[27.75px]">Alamat Masjid</label>  
+                <div class="relative ms-[20.25px] w-[384.75px] h-[33.75px]">
+                    <input type="text" name="alamat" class="w-full h-full rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input" placeholder="Masukkan Alamat Masjid" value="{{ old('alamat') }}">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
+                        <i class="fa-solid fa-address-book"></i>
+                    </div>
                 </div>
             </div>
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Luas Masjid (m<sup>2</sup>)</label>  
-                <input type="text" name="luas" class="ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]" placeholder="Masukkan Luas Masjid" value="{{ old('luas') }}">
-
-                <div class="absolute right-[510px] bottom-[319px]">
-                    <i class="fa-solid fa-ruler-vertical"></i>
+            
+            <div class="mt-[16.5px] text-left relative">
+                <label for="luas" class="font-semibold text-[11.25px] ms-[27.75px]">Luas Masjid (m<sup>2</sup>)</label>  
+                <div class="relative ms-[20.25px] w-[384.75px] h-[33.75px]">
+                    <input type="text" name="luas" class="w-full h-full rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input" placeholder="Masukkan Luas Masjid" value="{{ old('luas') }}">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
+                        <i class="fa-solid fa-ruler-vertical"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="mt-[16.5px] text-left">
+            </div>  
+            
+            <div class="mt-[16.5px] text-left relative">
                 <label for="" class="font-semibold text-[11.25px] ms-[27.75px]">Surat Kepemilikan / Wakaf</label>
-                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]"> 
-                    <label for="surat" class="rounded-[25px] w-[70px] h-[20px] bg-[#175729] text-slate-300 me-[7px] cursor-pointer flex items-center"><span class="mx-auto">Pilih File</span></label>
+                <div class="relative flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input"> 
+                    <label for="surat" class="rounded-[25px] w-[70px] h-[20px] bg-[#175729] text-slate-300 me-[7px] cursor-pointer flex items-center hover-button">
+                        <span class="mx-auto">Pilih File</span>
+                    </label>
                     <span id="surat_span">Masukkan Surat Kepemilikan / Wakaf</span>
                     <input type="file" name="surat" class="hidden" id="surat">
-                </div>
-                
-                    <div class="absolute right-[508px] bottom-[244px]">
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
                         <i class="fa-solid fa-file"></i>
                     </div>
+                </div>
             </div>
-
-            <div class="mt-[16.5px] text-left">
-                <label for="" class="font-semibold text-[11.25px] ms-[27.75px]" id="labelFoto">Foto Masjid</label>  
-                <div class="flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px]"> 
-                    <label for="foto" class="rounded-[25px] w-[70px] h-[20px] bg-[#175729] text-slate-300 me-[7px] cursor-pointer flex items-center"><span class="mx-auto">Pilih File</span></label>
+            
+            <div class="mt-[16.5px] text-left relative">
+                <label for="foto" class="font-semibold text-[11.25px] ms-[27.75px]" id="labelFoto">Foto Masjid</label>  
+                <div class="relative flex items-center ms-[20.25px] w-[384.75px] h-[33.75px] rounded-[25px] bg-[#B8B8B8] text-[11.25px] placeholder-[#175729] pl-[13.5px] pr-[45px] hover-input"> 
+                    <label for="foto" class="rounded-[25px] w-[70px] h-[20px] bg-[#175729] text-slate-300 me-[7px] cursor-pointer flex items-center hover-button">
+                        <span class="mx-auto">Pilih File</span>
+                    </label>
                     <span id="foto_span">Masukkan Foto Masjid</span>
                     <input type="file" name="foto" id="foto" class="hidden">
-                </div>
-                
-                
-                <div class="absolute right-[506px] bottom-[170px]">
-                    <i class="fa-solid fa-image"></i>
+                    <div class="absolute inset-y-0 right-[13.5px] flex items-center">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
                 </div>
             </div>
+            
+            
             <input type="hidden" value="true" name="pengurus">
+            <style>
+                .hover-button:hover {
+                    background-color: #154C21; /* Change background color on hover */
+                }
+            </style>
+            
+            <style>
+                .hover-button:hover {
+                    background-color: #154C21; /* Change background color on hover */
+                }
+            </style>
+            
             <div class="mb-[15.25px] flex justify-evenly">
-                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]" type="button" id="kembali">Kembali</button>   
-                <button class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px]">Submit</button>                
+                <button 
+                    class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px] hover-button" 
+                    type="button" 
+                    id="kembali">
+                    Kembali
+                </button>   
+                <button 
+                    class="w-[159.75px] h-[30.75px] bg-[#175729] font-medium text-white text-sm mt-[22.50px] rounded-[25px] hover-button" 
+                    type="button" 
+                    id="submit" 
+                    onclick="showSuccessAlert()">
+                    Submit
+                </button>                
             </div>
+            
+            <script>
+                function showSuccessAlert() {
+                    Swal.fire({
+                        title: 'Pengisian Form Berhasil',
+                        text: 'Formulir Anda telah berhasil disubmit.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        backdrop: true, // Add a backdrop
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirect to the login page after confirmation
+                            window.location.href = 'url_to_login_page'; // Replace with the actual URL to the login page
+                        }
+                    });
+                }
+            </script>
             <div class="flex justify-between mx-[20px]">
                 <span>
                     <span class="text-[#093C17] text-[10.5px] font-semibold"><u>Sudah Punya Akun?</u></span><span class="font-medium text-[10.5px]"> <a href="/login">Login</a></span>
